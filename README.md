@@ -7,8 +7,8 @@ Motome Blog is where you can post blogs about motorcycle touring.
 
 You can check out the [app](https://blog-kts.herokuapp.com/)
 
-*test account*
-email: test@example.com
+*test account*<br>
+email: test@example.com<br>
 password: password
 
 
