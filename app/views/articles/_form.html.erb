@@ -1,0 +1,22 @@
+<%= form_for article do |f| %>
+  <div id="cover-image" class="form-group padding-top-15 relative">
+    <% if article.image.present? %>
+      <%= image_tag article.image, class: "gray-image" %>
+    <% else %>
+      <%= image_tag "gray-bg.jpg", class: "gray-image" %>
+    <% end %>
+
+    <i class="fa fa-camera"></i>
+  </div>
+  <%= f.file_field :image %><br>
+
+  <div class="form-group padding-top-15">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, "本文" %>
+    <%= f.text_area :body, rows: 10, class: "form-control" %>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>

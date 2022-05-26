@@ -3,13 +3,6 @@
 Motome Blog is where you can post blogs about motorcycle touring.
 
 
-##　Table of Contents
-
-* URL
-* Features
-* Technology used
-
-
 ## URL
 
 You can check out the [app](https://blog-kts.herokuapp.com/)

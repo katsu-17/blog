@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center">記事作成</h1>
+  <div class="row">
+    <div class="col-md-12 margin-top-5per article-block">
+      <%
+=begin%>
+ <%= image_tag "top-image.jpg", class: "article-image padding-top-15" %>
+<%
+=end%>
+      <div class="padding-bottom-15">
+        <%= render "form", article: @article %>
+      </div>
+    </div>
+  </div>
+</div>

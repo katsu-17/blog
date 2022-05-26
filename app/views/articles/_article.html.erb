@@ -1,0 +1,24 @@
+<div class="row">
+  <% articles.each do |article| %>
+    <div class="col-md-3 margin-top-5per article-block">
+      <%= link_to article do %>
+        <% if article.image.attached? %>
+          <%= image_tag article.image, class: "img-fluid article-list-image padding-top-15 max-height-150" %>
+        <% else %>
+          <%= image_tag "sunset-g4cd1bc08a_1280.jpg", class: "img-fluid article-list-image padding-top-15 max-height-150" %>
+        <% end %>
+        <div class="padding-bottom-15">
+          <p class="title"><%= article.title %></p>
+          <span>
+            <%= article.created_at.strftime('%Y/%m/%d') %>
+          </span>
+          <% profile = Profile.find_by(user_id: article.user_id) %>
+          <p class="text-right">
+            <%= profile.name %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate articles %>

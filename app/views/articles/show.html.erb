@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 margin-top-5per article-block">
+      <% if @article.image.attached? %>
+        <%= image_tag @article.image, class: "article-image" %>
+      <% else %>
+        <%= image_tag "sunset-g4cd1bc08a_1280.jpg", class: "article-image" %>
+      <% end %>
+      <h1><%= @article.title %></h1>
+      <div class="padding-bottom-15 padding-10">
+        <%= simple_format @article.body %>
+        <p class="text-right">
+          <%= @profile.name %>
+        </p>
+        <p class="text-right">
+          <%= @article.created_at.strftime('%Y/%m/%d') %>
+        </p>
+      </div>
+      <% if @article.user == current_user %>
+        <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary", style: "margin-bottom: 10px; margin-right: 10px" %>
+        <%= link_to "削除する", article_path(@article), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger", style: "margin-bottom: 10px" %>
+      <% end %>
+    </div>
+  </div>
+</div>
