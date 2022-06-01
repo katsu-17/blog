@@ -1,11 +1,11 @@
-# Motome Blog
+# Moto Share
 
-Motome Blog is where you can post blogs about motorcycle touring.
+Moto Share is where you can post blogs about motorcycle touring.
 
 
 ## URL
 
-You can check out the [app](https://blog-kts.herokuapp.com/)
+You can check out the app [here](https://blog-kts.herokuapp.com/)
 
 **test account**<br>
 email: test@example.com<br>
