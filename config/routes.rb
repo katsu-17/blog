@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   :passwords => 'users/passwords'
 }
 
-  resources :articles
+  resources :articles do
+    resources :comments, only:[:create, :destroy]
+  end
   root   'articles#index'
   get "search" => "searches#search"
 end

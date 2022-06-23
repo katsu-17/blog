@@ -9,7 +9,9 @@ class ArticlesController < ApplicationController
 
   def show
     @profile = Profile.find_by(user_id: @article.user_id)
-
+    @article = Article.find(params[:id])
+    @comments = @article.comments
+    @comment = current_user.comments.new
   end
 
   def new

@@ -20,6 +20,22 @@
         <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary", style: "margin-bottom: 10px; margin-right: 10px" %>
         <%= link_to "削除する", article_path(@article), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger", style: "margin-bottom: 10px" %>
       <% end %>
+      <h3 class="margin-top-10">コメントする</h3>
+      <%= form_with(model:[@article, @comment], method: :post) do |f| %>
+        <%= f.text_area :comment, :size=>"60x10" %>
+        <%= f.hidden_field :article_id, value: @article.id %>
+        <%= f.submit 'コメントする' %>
+      <% end %>
+
+      <h3 class="margin-top-10">コメント一覧</h3>
+      <% @comments.each do |c| %>
+        <div>
+          <%= c.user.profile.name %>
+          <%= c.comment %>
+          <hr>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
