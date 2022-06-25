@@ -21,12 +21,15 @@
         <%= link_to "削除する", article_path(@article), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger", style: "margin-bottom: 10px" %>
       <% end %>
       <h3 class="margin-top-10">コメントする</h3>
-      <%= form_with(model:[@article, @comment], method: :post) do |f| %>
-        <%= f.text_area :comment, :size=>"60x10" %>
-        <%= f.hidden_field :article_id, value: @article.id %>
-        <%= f.submit 'コメントする' %>
+      <% if user_signed_in? %>
+        <%= form_with(model:[@article, @comment], method: :post) do |f| %>
+          <%= f.text_area :comment, :size=>"60x10" %>
+          <%= f.hidden_field :article_id, value: @article.id %>
+          <%= f.submit 'コメントする' %>
+        <% end %>
+      <% else %>
+        <p>※コメントする場合は<%= link_to "ログイン", new_user_session_path %>が必要です</p>
       <% end %>
-
       <h3 class="margin-top-10">コメント一覧</h3>
       <% @comments.each do |c| %>
         <div>

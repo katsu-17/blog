@@ -11,7 +11,9 @@ class ArticlesController < ApplicationController
     @profile = Profile.find_by(user_id: @article.user_id)
     @article = Article.find(params[:id])
     @comments = @article.comments
-    @comment = current_user.comments.new
+    if user_signed_in?
+      @comment = current_user.comments.new
+    end
   end
 
   def new
