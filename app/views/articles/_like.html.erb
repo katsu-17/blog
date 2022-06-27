@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <% if @article.liked?(current_user) %>
+    <%= link_to article_likes_path(@article.id), method: :delete, remote: true do %>
+      <i class="fa fa-heart unlike-btn"></i>
+    <% end %>
+    <%= @article.likes.count %>
+  <% else %>
+    <%= link_to article_likes_path(@article.id), method: :post, remote: true do %>
+      <i class="fa fa-heart like-btn"></i>
+    <% end %>
+    <%= @article.likes.count %>
+  <% end %>
+<% else %>
+  <i class="fa fa-heart like-btn"></i><%= @article.likes.count %>
+  <p>※いいねする場合は<%= link_to "ログイン", new_user_session_path %>が必要です</p>
+<% end %>

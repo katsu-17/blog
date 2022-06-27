@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only:[:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
   root   'articles#index'
   get "search" => "searches#search"
