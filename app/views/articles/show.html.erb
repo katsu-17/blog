@@ -27,7 +27,7 @@
       <h3 class="margin-top-10">コメントする</h3>
       <% if user_signed_in? %>
         <%= form_with(model:[@article, @comment], method: :post) do |f| %>
-          <%= f.text_area :comment, :size=>"60x10" %>
+          <%= f.text_area :comment, :size=>"40x10" %>
           <%= f.hidden_field :article_id, value: @article.id %>
           <%= f.submit 'コメントする' %>
         <% end %>
