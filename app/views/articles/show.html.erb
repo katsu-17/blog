@@ -19,7 +19,6 @@
       <div id="article_<%= @article.id %>">
         <%= render 'like', article: @article %>
       </div>
-
       <% if @article.user == current_user %>
         <%= link_to "編集", edit_article_path(@article), class: "btn btn-primary", style: "margin-bottom: 10px; margin-right: 10px" %>
         <%= link_to "削除する", article_path(@article), method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "btn btn-danger", style: "margin-bottom: 10px" %>
@@ -27,14 +26,18 @@
       <h3 class="margin-top-10">コメントする</h3>
       <% if user_signed_in? %>
         <%= form_with(model:[@article, @comment], method: :post) do |f| %>
-          <%= f.text_area :comment, :size=>"40x10" %>
-          <%= f.hidden_field :article_id, value: @article.id %>
-          <%= f.submit 'コメントする' %>
+          <div class="Form">
+            <div class="Form-Item">
+              <%= f.text_area :comment, class: "Form-Item-Textarea" %>
+            </div>
+            <%= f.hidden_field :article_id, value: @article.id %>
+            <%= f.submit 'コメントする', class: "Form-Btn" %>
+          </div>
         <% end %>
       <% else %>
         <p>※コメントする場合は<%= link_to "ログイン", new_user_session_path %>が必要です</p>
       <% end %>
-      <h3 class="margin-top-10">コメント一覧</h3>
+      <h3 class="comment-title">コメント一覧</h3>
       <% @comments.each do |c| %>
         <div>
           <%= c.user.profile.name %>
@@ -42,7 +45,6 @@
           <hr>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>
