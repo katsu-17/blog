@@ -23,6 +23,10 @@ password: password
 
 * pagination
 
+* comment
+
+* like button
+
 
 ## Technology used
 
