@@ -79,6 +79,7 @@ RSpec.describe Article, type: :model do
       )
       @user2 = FactoryBot.create(:user)
     end
+
     context "when liked" do
       it "returns true" do
         Like.create(
