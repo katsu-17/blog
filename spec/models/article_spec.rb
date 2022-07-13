@@ -70,4 +70,29 @@ RSpec.describe Article, type: :model do
       end
     end
   end
+
+  describe "check if the article is liked by the person" do
+    before do
+      @article = @user.articles.create(
+        title: "This is the first article",
+        body: "テスト本文",
+      )
+      @user2 = FactoryBot.create(:user)
+    end
+    context "when liked" do
+      it "returns true" do
+        Like.create(
+          user_id: @user2.id,
+          article_id: @article.id,
+        )
+        expect(@article.liked?(@user2)).to be true
+      end
+    end
+
+    context "when not liked" do
+      it "returns false" do
+        expect(@article.liked?(@user2)).to be false
+      end
+    end
+  end
 end
